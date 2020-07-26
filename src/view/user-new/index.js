@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import firebase from '../../config/firebase';
 import 'firebase/auth';
+import NavBar from '../../components/navbar/';
 
 import './user-new.css';
 
@@ -48,25 +49,28 @@ function NewUser() {
     }
 
     return (
-        <div className="form-cadastro">
-            <form className="text-center form-login mx-auto mt-5">
-                <h1 className="h3 mb-3 text-black font-weight-bold">Cadastro</h1>
+        <>
+            <NavBar />
+            <div className="form-cadastro">
+                <form className="text-center form-login mx-auto mt-5">
+                    <h1 className="h3 mb-3 text-black font-weight-bold">Cadastro</h1>
 
-                <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="Email" />
-                <input onChange={(e) => setPassword(e.target.value)} type="password" className="form-control my-2" placeholder="Senha" />
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="Email" />
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" className="form-control my-2" placeholder="Senha" />
 
-                {
-                    loading ? <div class="spinner-border text-danger" role="status"><span class="sr-only">Loading...</span></div>
-                        : <button onClick={cadastrar} type="button" className="btn btn-lg btn-block mt-3 mb-5 btn-cadastro">Cadastrar</button>
-                }
+                    {
+                        loading ? <div class="spinner-border text-danger" role="status"><span class="sr-only">Loading...</span></div>
+                            : <button onClick={cadastrar} type="button" className="btn btn-lg btn-block mt-3 mb-5 btn-cadastro">Cadastrar</button>
+                    }
 
-                <div className="msg-login text-black text-center my-5">
-                    {msgType === 'sucesso' && <span><strong>WoW!</strong>Usuário cadastrado com sucesso! &#128526;</span>}
-                    {msgType === 'erro' && <span><strong>Ops!</strong> {msg} &#128546;</span>}
-                </div>
+                    <div className="msg-login text-black text-center my-5">
+                        {msgType === 'sucesso' && <span><strong>WoW!</strong>Usuário cadastrado com sucesso! &#128526;</span>}
+                        {msgType === 'erro' && <span><strong>Ops!</strong> {msg} &#128546;</span>}
+                    </div>
 
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     )
 }
 
