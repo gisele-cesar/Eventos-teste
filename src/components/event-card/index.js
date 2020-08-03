@@ -4,13 +4,13 @@ import firebase from '../../config/firebase';
 
 import './event-card.css';
 
-function EventCard({ key, img, title, details, views }) {
+function EventCard({ id, img, title, details, views }) {
 
     const [urlImage, setUrlImage] = useState();
 
     useEffect(() => {
         firebase.storage().ref(`imagens/${img}`).getDownloadURL().then(url => setUrlImage(url));
-    });
+    }, [urlImage]);
 
     return (
         <div className='col-md-3 col-sm-12'>
@@ -22,11 +22,11 @@ function EventCard({ key, img, title, details, views }) {
 
                 <div className='row foot-card d-flex align-items-center'>
                     <div className='col-6'>
-                        <Link to='/' className='btn btn-sm btn-details'>+ detalhes</Link>
+                        <Link to={'/eventdetails/' + id} className='btn btn-sm btn-details'>+ detalhes</Link>
                     </div>
 
                     <div className='col-6 text-right'>
-                        <i class="fas fa-eye"></i><span>{views}</span>
+                        <i class="fas fa-eye"></i> <span>{views}</span>
                     </div>
                 </div>
 
