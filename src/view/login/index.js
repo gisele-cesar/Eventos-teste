@@ -34,14 +34,14 @@ function Login() {
 
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
-                    <i class="far fa-smile-wink text-white fa-5x"></i>
+                    <i className="far fa-smile-wink text-white fa-5x"></i>
                     <h1 className="h3 mb-3 font-weight-normal text-white font-weight-bold">Login</h1>
                 </div>
 
-                <input onChange={(e) => setEmail(e.target.value)} type="email" id="inputEmail" class="form-control my-2" placeholder="Email" />
-                <input onChange={(e) => setPassword(e.target.value)} type="password" id="inputPassword" class="form-control my-2" placeholder="Senha" />
+                <input onChange={(e) => setEmail(e.target.value)} type="email" id="inputEmail" className="form-control my-2" placeholder="Email" />
+                <input onChange={(e) => setPassword(e.target.value)} type="password" id="inputPassword" className="form-control my-2" placeholder="Senha" />
 
-                <button onClick={logar} class="btn btn-lg btn-block btn-login" type="button">Logar</button>
+                <button onClick={logar} className="btn btn-lg btn-block btn-login" type="button">Logar</button>
 
                 <div className="msg-login text-white text-center my-5">
                     {msgType === 'sucesso' && <span><strong>WoW!</strong>Você está conectado! &#128526;</span>}
